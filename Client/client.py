@@ -42,18 +42,14 @@ class Client:
             self._console()
         except Exception as e:
             print("ERRO - Erro ao iniciar as operações.\nDescrição do erro: " + str(e))
-        finally:
-            self._close_connect()
     
     def _receive_message(self):
         try:
             while True:
                 message = self._connection.recv(1024)
-                print(message + "\n")
+                message = json.loads(message.decode("utf-8"))
         except Exception as e:
-            print("ERRO - Erro ao gerenciar o envio de mensagens.\nDescrição do erro: " + str(e))
-        finally:
-            self._close_connect()
+            print("ERRO - Erro ao receber uma mensagem.\nDescrição do erro: " + str(e))
     
     def _console(self):
         try:
@@ -62,28 +58,21 @@ class Client:
                 if command is not None:
                     self._send_command(command)
                     if command["command"] == "exit":
-                        self._close_connect()
                         break
         except Exception as e:
             print("ERRO - Erro ao gerenciar o envio de mensagens.\nDescrição do erro: " + str(e))
-        finally:
-            self._close_connect()
             
     def _get_command(self):
         try:
             return self._client_commands.onecmd(input())
         except Exception as e:
             print("ERRO - Erro ao ler o comando digitado.\nDescrição do erro: " + str(e))
-        finally:
-            self._close_connect()
 
     def _send_command(self, command):
         try:
-            self._connection.send(bytes(command, encoding="utf-8"))
+            self._connection.send(bytes(json.dumps(command), encoding="utf-8"))
         except Exception as e:
             print("ERRO - Erro ao enviar o comando.\nDescrição do erro: " + str(e))
-        finally:
-            self._close_connect()
 
 if __name__ == "__main__":
     client = Client(sys.argv[1] if len(sys.argv) > 1 else "../Config/config.json")
