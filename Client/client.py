@@ -47,7 +47,8 @@ class Client:
         try:
             while True:
                 message = self._connection.recv(1024)
-                message = json.loads(message.decode("utf-8"))
+                message = message.decode("utf-8")
+                print(message)
         except Exception as e:
             print("ERRO - Erro ao receber uma mensagem.\nDescrição do erro: " + str(e))
     
