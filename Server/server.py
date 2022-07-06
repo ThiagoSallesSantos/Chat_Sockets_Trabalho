@@ -110,6 +110,9 @@ class Server:
                     self._dict_channel[param].append(self._dict_connections[connection])
                     self._dict_connections[connection].set_channel(param)
                     self._send_message(connection, "Server: Você foi conectado no canal \"" + str(param) + "\"")
+                    for client in self._dict_channel[param]:
+                        if client.get_connection() is not connection:
+                            self._send_message(connection, "Server: O cliente " + str(self._dict_connections[connection].get_name()) + " se conectou no canal!")
                 else:
                     self._send_message(connection, "Server: Você já se encontra conectado no canal \"" + str(param) + "\"")
         except Exception as e:

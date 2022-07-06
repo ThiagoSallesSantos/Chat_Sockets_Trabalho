@@ -29,7 +29,8 @@ class Client:
     def connect(self):
         try:
             self._connection.connect((self._ip_server, self._port_server))
-            print("Conecção com o servidor '" + str(self._ip_server) + "' estabelecida! - use o comando \"help\" para mais informações")
+            print("Conecção com o servidor '" + str(self._ip_server) + "' estabelecida!")
+            print("Obs: Para se comunicar basta esta conectado em algum canal, para isso saber mais use o comando \"help\"")
             self._start()
         except Exception as e:
             print("ERRO - Erro ao estabelecer conexão com o servidor.\nDescrição do erro: " + str(e))
