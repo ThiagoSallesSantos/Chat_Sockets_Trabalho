@@ -86,7 +86,7 @@ class Server:
             if self._dict_connections[connection].get_channel() in self._dict_channel.keys():
                 for client in self._dict_channel[self._dict_connections[connection].get_channel()]:
                     if client.get_connection() is not connection:
-                        self._send_message(client.get_connection(), str(client.get_name()) + ": " + str(param))
+                        self._send_message(client.get_connection(), str(self._dict_connections[connection].get_name()) + ": " + str(param))
             else:
                 self._send_message(connection, "Server: Você não se encontra em um canal de mensagem ou o canal não existe mais!")
         except Exception as e:
