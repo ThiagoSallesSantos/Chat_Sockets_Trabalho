@@ -13,10 +13,9 @@ Comandos:
 - python3 server.py
 - python3 client.py
 <br/>
-ou 
-<br/>
-- python3 server.py <dir_configurações>
-- python3 client.py <dir_configurações> 
+ou
+- python3 server.py [dir_configurações]
+- python3 client.py [dir_configurações]
 <br/>
 OBS: em caso de mudança do arquivo config.json ou criação de outro arquivo, deve ser seguido a seguinte estrutura: <br/>
 {"ip":<ip_escolhido>, "port":<porta_escolhida>}
@@ -39,10 +38,9 @@ Todas as bibliotecas utilizadas no projeto, são bibliotecas padrões do python 
 ## Funcionamento:
 Ao se conectar o servidor o cliente deve inicialmente adentrar em algum canal de comunicação ou criar um novo canal, pelos comandos:
 <br/>
-- connect <nome_canal>
+- connect [nome_canal]
 <br/>
 ou
-<br/>
-- create <nome_canal>
+- create [nome_canal]
 <br/>
 Caso não conheça o nome do canal que deseja adentrar basta, usar o comando "list", que irá listar os canais e os membros que estão nestes canais. Em caso de dúvida basta utilizar o comando "help". As mensagens são todos os input's que não são considerados comandos.
