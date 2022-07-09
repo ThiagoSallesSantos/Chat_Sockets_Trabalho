@@ -12,7 +12,7 @@ Para executar basta executar o código server.py (./Server/server.py) primeiro, 
 Comandos:
 - python3 server.py 
 - python3 client.py
-ou 
+\nou 
 - python3 server.py <dir_configurações>
 - python3 client.py <dir_configurações>
 OBS: em caso de mudança do arquivo config.json ou criação de outro arquivo, deve ser seguido a seguinte estrutura:
@@ -35,7 +35,8 @@ Todas as bibliotecas utilizadas no projeto, são bibliotecas padrões do python 
 	- clientCommands
 ## Funcionamento:
 Ao se conectar o servidor o cliente deve inicialmente adentrar em algum canal de comunicação ou criar um novo canal, pelos comandos:
-connect <nome_canal>
-create <nome_canal>
+- connect <nome_canal>
+\nou
+- create <nome_canal>
 OBS: Não precisa adicionar "<" e ">"
 Caso não conheça o nome do canal que deseja adentrar basta, usar o comando "list", que irá listar os canais e os membros que estão nestes canais. Em caso de dúvida basta utilizar o comando "help". As mensagens são todos os input's que não são considerados comandos.
