@@ -1,5 +1,9 @@
 import cmd
 
+"""
+Classe Commands
+classe responsável por gerenciar os comandos disponíveis pelos clientes.
+"""
 class Commands(cmd.Cmd):
 
     ## Metodos - Comandos
@@ -36,6 +40,6 @@ class Commands(cmd.Cmd):
         print('\n' + 'list' + '\n' + 'Finaliza a conecção com o servidor.' + '\n')
     
     ## Utilies Methods
-        
+    ## Metodos por transformar o comando digitado em um dict
     def _model_response(self, command, param):
         return dict({'command': str(command), 'param': str(param)})
